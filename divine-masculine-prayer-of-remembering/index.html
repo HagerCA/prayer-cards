@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Divine Masculine: Prayer of Remembering · A prayer card</title>
+<style>
+@font-face{font-family:'Instrument Serif';src:url('./fonts/InstrumentSerif-fa1a1a83.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap;}
+@font-face{font-family:'Space Grotesk';src:url('./fonts/SpaceGrotesk-a57c9413.woff2') format('woff2');font-weight:300 700;font-style:normal;font-display:swap;}
+:root{
+  --night:#0B1220; --stone:#13203A; --stone-2:#1A2B4A;
+  --gold:#B8893A; --gold-hi:#E2B867; --paper:#F2E8D6; --paper-dim:rgba(242,232,214,.62);
+  --serif:'Instrument Serif',Georgia,serif;
+  --head:'Space Grotesk',"Segoe UI",Arial,sans-serif;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;background:var(--night);color:var(--paper);}
+body{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:28px 14px;
+  background:radial-gradient(ellipse 90% 60% at 50% 0%, rgba(184,137,58,.14), transparent 70%), var(--night);}
+
+.card{width:min(520px,100%);position:relative;}
+.face{border:1px solid rgba(184,137,58,.6);border-radius:8px;overflow:hidden;
+  box-shadow:0 30px 80px rgba(0,0,0,.6), inset 0 0 0 6px var(--stone), inset 0 0 0 7px rgba(184,137,58,.3);
+  background:linear-gradient(180deg,var(--stone-2),var(--stone));}
+.front{cursor:pointer;}
+.front img{display:block;width:100%;height:auto;}
+.back{display:none;padding:34px 30px 28px;}
+.card.turned .front{display:none;}
+.card.turned .back{display:block;}
+
+.eyebrow{margin:0;text-align:center;font-family:var(--head);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold-hi);}
+.title{margin:8px 0 4px;text-align:center;font-family:var(--serif);font-weight:400;font-size:36px;line-height:1.08;color:var(--gold-hi);}
+.title .sub{display:block;margin-top:4px;font-size:.72em;}
+.by{margin:6px 0 0;text-align:center;font-family:var(--head);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--paper-dim);}
+.rule{width:64px;height:1px;margin:18px auto 4px;background:var(--gold);opacity:.7;}
+
+.face-dot{float:left;width:64px;height:64px;margin:4px 14px 6px 0;border-radius:50%;
+  background:url('./card.jpg') no-repeat -64px -135px/200px auto;
+  border:2px solid var(--gold-hi);box-shadow:0 0 18px rgba(226,184,103,.45);}
+.prayer p{margin:22px 0 0;font-family:var(--serif);font-size:22px;line-height:1.6;color:var(--paper);}
+.amen{margin:28px 0 0;text-align:center;font-family:var(--serif);font-size:24px;line-height:1.7;color:var(--gold-hi);}
+.note{margin:22px 0 0;text-align:center;font-family:var(--head);font-size:10px;line-height:1.8;letter-spacing:.2em;text-transform:uppercase;color:var(--paper-dim);}
+
+.ctrl{margin-top:18px;display:flex;justify-content:center;}
+button{font-family:var(--head);font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;
+  color:var(--gold-hi);background:transparent;border:1px solid var(--gold);border-radius:2px;
+  padding:12px 22px;cursor:pointer;transition:background .25s,color .25s;}
+button:hover,button:focus-visible{background:var(--gold);color:var(--night);outline:none;}
+
+@media (max-width:440px){ .back{padding:26px 20px 22px;} .title{font-size:30px;} .prayer p{font-size:20px;} }
+</style>
+</head>
+<body>
+<a href="../" style="position:fixed;top:14px;left:14px;z-index:5;font:600 11px/1 'Space Grotesk','Segoe UI',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#E2B867;text-decoration:none;padding:10px 14px;border:1px solid rgba(184,137,58,.6);border-radius:2px;background:rgba(11,18,32,.88)">&larr; All the cards</a>
+
+<main class="card" id="card" aria-label="Divine Masculine: Prayer of Remembering, a prayer card">
+  <section class="face front" aria-label="The card">
+    <img src="./card.jpg" width="688" height="1536" alt="Christopher in a wide-brimmed hat, one hand on his heart and one on his belly, flower of life geometry glowing behind him on blue and gold stone, beneath the words Divine Masculine Embodied.">
+  </section>
+
+  <section class="face back" aria-label="The prayer">
+    <p class="eyebrow">A prayer he wrote</p>
+    <h1 class="title">Divine Masculine<span class="sub">Prayer of Remembering</span></h1>
+    <p class="by">Christopher Hager &middot; since June 23, 2023</p>
+    <div class="rule" aria-hidden="true"></div>
+
+    <div class="prayer">
+      <p><span class="face-dot" aria-hidden="true"></span>I have seen a vision of my highest self, and it is presenting such a fantastic embodiment of the divine masculine, in this incarnation, that I must speak these words as a prayer of remembering and say, thank you, thank you, thank you! I say this prayer with all the grace and gratitude I can summon, for the prayer has already been answered...</p>
+
+      <p>I am a kind and powerful man, yet I don't diminish or humiliate others to show this power. It is a quiet confidence and a presence that emanates from me. I do not engage in boasting; instead, my actions align seamlessly with my words.</p>
+
+      <p>I am truly a man of service who does the right thing because I act from a space of integrity. I take what I believe is the right action, regardless if I'm alone or in the mix of a crowd. The eyes of others never dissuade my decisions because of what they "may or may not" think of me. I am so confident in who I am that I never waver from this path. I understand my impact on others and how my actions may inspire them to be a more genuine version of themselves just by witnessing me living in my full embodiment.</p>
+
+      <p>I have a level of calm throughout the chaos, a true warrior's mindset. Despite all the bullets that have been fired in my direction and storms that have raged around me, I never let the external chaos impact my inner peace. I am not afraid to put myself in harm's way to help others find safety or stand up for those who cannot protect themselves. I also understand the difference between the sounds of danger and the boom of thunder from an oncoming storm. I don't reach for my weapon when I hear this but rather my dancing shoes so we can all celebrate the coming rain.</p>
+
+      <p>I serve as a calming presence for all those in my life and, to many, a fatherly figure to those who seek my wisdom, both older and younger. I view other people in this same light, not relying solely on their insight to make my decisions, yet, I always keep an open heart when it comes to the experience of others and allow their perspective to be a part of my process.</p>
+
+      <p>It brings me great joy to be around my children and other kids as I watch their faces light up with all the possibilities the universe has to offer. I love to be silly and get into my imagination and into the imagination of those around me. I create space for my inner child because I have long since recognized the importance of play, joy, fun, creativity, and curiosity. I seek to help others connect to their inner child as well.</p>
+
+      <p>Those times, I find myself quick to anger, and I'm even quicker to deliver an apology. I take great pride in owning up to my side of the mess and, as a result, model this behavior for all those in my presence.</p>
+
+      <p>I am an incredible partner, friend, and family man. Who is loved by all who truly SEE me; my charisma, character, patience, leadership, laughter, and love are so abundant that it's undeniable to those who cross my path. I don't use these traits haphazardly or manipulate those around me.</p>
+
+      <p>I am trustworthy, open, and honest about My feelings, intentions, my past, and commitment to God, my family, and my role in the universe. I don't identify with the mask of the lover or even that of the great husband, friend, or father, but simply embody all those qualities. Love remains my North Star and My foundation is built on Truth, Service, Integrity, and Compassion.</p>
+
+      <p>I love my Pixie (partner), and she loves me. I understand how to support the Divine Feminine, My very presence is enough, like that of the mountain 🏔️, to listen and receive any expression that may come through. At times I create space for her to be on her own, giving her the chance to connect with her own higher power. Or encouraging her to speak her truth and share her wisdom with others.</p>
+
+      <p>I am not afraid of my tears or the tears of others. I see them as holy water, a true gift from God, as connecting to our emotions is an amazing &amp; beautiful expression of our humanity. I welcome all sides of the journey and see the light and darkness in Myself and others as a Divine work of art.</p>
+
+      <p>I love spending time in nature and being in harmony with it. This brings me a sense of ease and balance. I find great joy in being surrounded by my family and friends. And bonding with them through music, meditation, dance, laughter, exercise, storytelling, ceremonies, celebrations, prayers, sharing meals and helping others. I make it a point to spread whatever love, light, and wisdom I can into the universe by any means necessary.</p>
+
+      <p>I receive as freely and fully as I give. I release the belief that my worth is measured only by what I pour out toward others. I am not just the guide. I am also the one who is guided, held, and replenished. I allow the abundance of the universe to move through me in all directions, not just outward, but inward, back toward this body, this life, and this heart. I am a vessel worthy of being filled, and today I am open to receive everything God has been conspiring to send my way.</p>
+
+      <p>I trust the power that moves through me. I no longer watch it out of fear, because it is rooted in love. I recognize myself as a divine being experiencing itself through form, not separate from God, not inflated by ego, not diminished by false modesty. I do not shrink my light to belong, and I do not exaggerate it to be seen. I stand where I am, fully. I accept my humanity, my personality, and my ego as part of this expression, and I let devotion, not humility, guide my actions. I offer my gifts freely, responsibly, and without apology. What moves through me serves life. And I trust myself to carry it.</p>
+
+      <p>I accept things as they come to me without spending time saying, "I wish it turned out differently." Instead, I look for the lesson in everything and how it can help me and those around me. I have a vision for what I want in the world but I'm not attached to it. I remain malleable and flexible as things come into My awareness &amp; into the collective consciousness.</p>
+
+      <p>I have surrendered entirely to my healing power and wisdom; allowing me to transcend the limitations of the 3D world and proclaim my magic daily in any situation. I speak about channeling, manifestation, telepathy, Universal Intelligence, and all the healing and beautiful things I have seen, felt, and experienced without reservation or fear of being judged; I see no reason to hide my truth; I am always my authentic self.</p>
+
+      <p>My heart and integrity resonate deeply when I speak, touching the souls of all those who listen.</p>
+
+      <p>I don't spend any time worrying about the "how." I've surrendered entirely to the Divine Creator and allow this life to unfold before me. I understand that words are spells so when I speak my voice is heartfelt and truthful; as I seek to cast spells that manifest more beauty, love, and positivity into being.</p>
+    </div>
+
+    <p class="amen">Amen 🙏🏽<br>Aho 💜<br>Aṣẹ ⚡</p>
+
+    <p class="note">CAHager.com</p>
+  </section>
+
+  <div class="ctrl"><button type="button" id="turn" aria-controls="card">Turn to the prayer</button></div>
+</main>
+
+<script>
+(function(){
+  var card=document.getElementById('card'), btn=document.getElementById('turn');
+  function turn(){
+    var t=card.classList.toggle('turned');
+    btn.textContent=t?'Back to the image':'Turn to the prayer';
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  btn.addEventListener('click',turn);
+  card.querySelector('.front').addEventListener('click',turn);
+})();
+</script>
+</body>
+</html>

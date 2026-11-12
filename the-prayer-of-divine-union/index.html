@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>The Prayer of Divine Union · A prayer card</title>
+<style>
+@font-face{font-family:'Instrument Serif';src:url('./fonts/InstrumentSerif-fa1a1a83.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap;}
+@font-face{font-family:'Space Grotesk';src:url('./fonts/SpaceGrotesk-a57c9413.woff2') format('woff2');font-weight:300 700;font-style:normal;font-display:swap;}
+:root{
+  --night:#0B1220; --stone:#13203A; --stone-2:#1A2B4A;
+  --gold:#B8893A; --gold-hi:#E2B867; --paper:#F2E8D6; --paper-dim:rgba(242,232,214,.62);
+  --serif:'Instrument Serif',Georgia,serif;
+  --head:'Space Grotesk',"Segoe UI",Arial,sans-serif;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;background:var(--night);color:var(--paper);}
+body{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:28px 14px;
+  background:radial-gradient(ellipse 90% 60% at 50% 0%, rgba(184,137,58,.14), transparent 70%), var(--night);}
+
+.card{width:min(520px,100%);position:relative;}
+.face{border:1px solid rgba(184,137,58,.6);border-radius:8px;overflow:hidden;
+  box-shadow:0 30px 80px rgba(0,0,0,.6), inset 0 0 0 6px var(--stone), inset 0 0 0 7px rgba(184,137,58,.3);
+  background:linear-gradient(180deg,var(--stone-2),var(--stone));}
+.front{cursor:pointer;}
+.front img{display:block;width:100%;height:auto;}
+.back{display:none;padding:34px 30px 28px;}
+.card.turned .front{display:none;}
+.card.turned .back{display:block;}
+
+.eyebrow{margin:0;text-align:center;font-family:var(--head);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold-hi);}
+.title{margin:8px 0 4px;text-align:center;font-family:var(--serif);font-weight:400;font-size:36px;line-height:1.08;color:var(--gold-hi);}
+.by{margin:6px 0 0;text-align:center;font-family:var(--head);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--paper-dim);}
+.rule{width:64px;height:1px;margin:18px auto 4px;background:var(--gold);opacity:.7;}
+
+.face-dot{float:left;width:64px;height:64px;margin:4px 14px 6px 0;border-radius:50%;
+  background:url('./card.jpg') no-repeat -115px -60px/297px auto;
+  border:2px solid var(--gold-hi);box-shadow:0 0 18px rgba(226,184,103,.45);}
+.prayer p{margin:22px 0 0;font-family:var(--serif);font-size:22px;line-height:1.6;color:var(--paper);}
+.amen{margin:28px 0 0;text-align:center;font-family:var(--serif);font-size:24px;line-height:1.7;color:var(--gold-hi);}
+.note{margin:22px 0 0;text-align:center;font-family:var(--head);font-size:10px;line-height:1.8;letter-spacing:.2em;text-transform:uppercase;color:var(--paper-dim);}
+
+.ctrl{margin-top:18px;display:flex;justify-content:center;}
+button{font-family:var(--head);font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;
+  color:var(--gold-hi);background:transparent;border:1px solid var(--gold);border-radius:2px;
+  padding:12px 22px;cursor:pointer;transition:background .25s,color .25s;}
+button:hover,button:focus-visible{background:var(--gold);color:var(--night);outline:none;}
+
+@media (max-width:440px){ .back{padding:26px 20px 22px;} .title{font-size:30px;} .prayer p{font-size:20px;} .amen{font-size:21px;} }
+</style>
+</head>
+<body>
+<a href="../" style="position:fixed;top:14px;left:14px;z-index:5;font:600 11px/1 'Space Grotesk','Segoe UI',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#E2B867;text-decoration:none;padding:10px 14px;border:1px solid rgba(184,137,58,.6);border-radius:2px;background:rgba(11,18,32,.88)">&larr; All the cards</a>
+
+<main class="card" id="card" aria-label="The Prayer of Divine Union, a prayer card">
+  <section class="face front" aria-label="The card">
+    <img src="./card.jpg" width="1136" height="1408" alt="A couple seen from behind, sitting hand in hand on a woven blanket at a candlelit twilight ceremony above the ocean, two clay cups beside them, golden and rose light rising from their hearts and braiding into one heart inside a sacred geometry halo, framed by blue and gold stone.">
+  </section>
+
+  <section class="face back" aria-label="The prayer">
+    <p class="eyebrow">A prayer for two</p>
+    <h1 class="title">The Prayer of Divine Union</h1>
+    <p class="by">Christopher Hager</p>
+    <div class="rule" aria-hidden="true"></div>
+
+    <div class="prayer">
+      <p><span class="face-dot" aria-hidden="true"></span>Divine Union, Source of All Love and Light,</p>
+
+      <p>In this sacred moment, we come before you with hearts wide open, seeking your guidance and blessings. We acknowledge the profound gift of love that has brought our souls together on this sacred path. We recognize the beauty and significance of our journey thus far, and we humbly ask for your divine intervention.</p>
+
+      <p>May this heart-opening medicine, bestowed upon us beloved souls, be a catalyst for deeper connection, truth, love, and gratitude. May it dissolve any barriers or limitations that have held us back from fully embracing our authentic selves and each other.</p>
+
+      <p>As we ingest this medicine, may it infuse our beings with a profound sense of unity, compassion, and understanding. May it open our hearts to receive with love the truth of each other&rsquo;s feelings and perspectives. May it bless our voice with the ability to share our truths from a place of love. May it allow us to explore the vastness of our souls, intertwining in a dance of pure loving devotion.</p>
+
+      <p>May this medicine be a gentle guide, illuminating the path of our journey together. May it help us navigate through the twists and turns, offering clarity and insight when faced with challenges or uncertainties. May it remind us of the sacred bond we share, as we traverse the sacred realms of love and union.</p>
+
+      <p>We offer our deepest gratitude for this transformative medicine and for the opportunity to witness our sacred union from a higher perspective. We trust in your divine wisdom, dear Universe (God), to bless our souls with an abundance of love, joy, and harmony. May our hearts be forever intertwined in a tapestry of divine love, for the highest good of all.</p>
+
+      <p>With boundless love and gratitude, we surrender this prayer to your divine hands.</p>
+    </div>
+
+    <p class="amen">Amen.<br>Aho<br>Ase</p>
+
+    <p class="note">CAHager.com</p>
+  </section>
+
+  <div class="ctrl"><button type="button" id="turn" aria-controls="card">Turn to the prayer</button></div>
+</main>
+
+<script>
+(function(){
+  var card=document.getElementById('card'), btn=document.getElementById('turn');
+  function turn(){
+    var t=card.classList.toggle('turned');
+    btn.textContent=t?'Back to the image':'Turn to the prayer';
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  btn.addEventListener('click',turn);
+  card.querySelector('.front').addEventListener('click',turn);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Yeshua and the Archangels · A prayer card</title>
+<style>
+@font-face{font-family:'Instrument Serif';src:url('./fonts/InstrumentSerif-fa1a1a83.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap;}
+@font-face{font-family:'Space Grotesk';src:url('./fonts/SpaceGrotesk-a57c9413.woff2') format('woff2');font-weight:300 700;font-style:normal;font-display:swap;}
+:root{
+  --night:#0B1220; --stone:#13203A; --stone-2:#1A2B4A;
+  --gold:#B8893A; --gold-hi:#E2B867; --paper:#F2E8D6; --paper-dim:rgba(242,232,214,.62);
+  --yeshua:#E9C77A; --raphael:#6FC79A; --michael:#7FA8F0;
+  --serif:'Instrument Serif',Georgia,serif;
+  --head:'Space Grotesk',"Segoe UI",Arial,sans-serif;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;background:var(--night);color:var(--paper);}
+body{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:28px 14px;
+  background:radial-gradient(ellipse 90% 60% at 50% 0%, rgba(184,137,58,.14), transparent 70%), var(--night);}
+
+.card{width:min(520px,100%);position:relative;}
+.face{border:1px solid rgba(184,137,58,.6);border-radius:8px;overflow:hidden;
+  box-shadow:0 30px 80px rgba(0,0,0,.6), inset 0 0 0 6px var(--stone), inset 0 0 0 7px rgba(184,137,58,.3);
+  background:linear-gradient(180deg,var(--stone-2),var(--stone));}
+.front{cursor:pointer;}
+.front img{display:block;width:100%;height:auto;}
+.back{display:none;padding:34px 30px 28px;}
+.card.turned .front{display:none;}
+.card.turned .back{display:block;}
+
+.eyebrow{margin:0;text-align:center;font-family:var(--head);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold-hi);}
+.title{margin:8px 0 4px;text-align:center;font-family:var(--serif);font-weight:400;font-size:36px;line-height:1.08;color:var(--gold-hi);}
+.rule{width:64px;height:1px;margin:16px auto 6px;background:var(--gold);opacity:.7;}
+
+.inv{margin-top:26px;}
+.inv__head{display:flex;align-items:center;gap:14px;margin-bottom:12px;}
+.inv__face{flex:0 0 64px;width:64px;height:64px;border-radius:50%;
+  background-image:url('./card.jpg');background-size:297px auto;background-repeat:no-repeat;
+  border:2px solid var(--c);box-shadow:0 0 18px color-mix(in srgb, var(--c) 45%, transparent);}
+.inv__name{margin:0;font-family:var(--serif);font-weight:400;font-size:25px;line-height:1.15;color:var(--c);}
+.inv__name small{display:block;font-family:var(--head);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--paper-dim);margin-bottom:3px;}
+.inv p{margin:0;font-family:var(--serif);font-size:22px;line-height:1.6;color:var(--paper);}
+.inv--yeshua{--c:var(--yeshua);}  .inv--yeshua .inv__face{background-position:-118px -93px;}
+.inv--raphael{--c:var(--raphael);} .inv--raphael .inv__face{background-position:-206px -99px;}
+.inv--michael{--c:var(--michael);} .inv--michael .inv__face{background-position:-37px -96px;}
+
+.close{margin:30px 0 0;text-align:center;font-family:var(--head);font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--paper-dim);}
+
+.ctrl{margin-top:18px;display:flex;justify-content:center;}
+button{font-family:var(--head);font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;
+  color:var(--gold-hi);background:transparent;border:1px solid var(--gold);border-radius:2px;
+  padding:12px 22px;cursor:pointer;transition:background .25s,color .25s;}
+button:hover,button:focus-visible{background:var(--gold);color:var(--night);outline:none;}
+
+@media (max-width:440px){ .back{padding:26px 20px 22px;} .title{font-size:30px;} .inv p{font-size:20px;} }
+</style>
+</head>
+<body>
+<a href="../" style="position:fixed;top:14px;left:14px;z-index:5;font:600 11px/1 'Space Grotesk','Segoe UI',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#E2B867;text-decoration:none;padding:10px 14px;border:1px solid rgba(184,137,58,.6);border-radius:2px;background:rgba(11,18,32,.88)">&larr; All the cards</a>
+
+<main class="card" id="card" aria-label="Yeshua and the Archangels, a prayer card">
+  <section class="face front" aria-label="The card">
+    <img src="./card.jpg" width="928" height="1150" alt="Yeshua stands at the centre in a keffiyeh, hands open, beneath the Flame of Consciousness. Archangel Michael stands to his right in gold armour with a sword, Archangel Raphael to his left in green with a staff.">
+  </section>
+
+  <section class="face back" aria-label="The prayer">
+    <p class="eyebrow">Invocations &middot; Christopher Hager</p>
+    <h1 class="title">Yeshua and the Archangels</h1>
+    <div class="rule" aria-hidden="true"></div>
+
+    <article class="inv inv--yeshua">
+      <div class="inv__head"><span class="inv__face" aria-hidden="true"></span>
+        <h2 class="inv__name"><small>The centre</small>Yeshua, the Christ Anointed</h2></div>
+      <p>Yeshua Ben Joseph, the Christ Anointed, I call upon you to fill my heart full of love, kindness, compassion, and compersion. Allow me to see the face of God in everyone I meet. To fill the hearts of those around me as you have filled mine. Bringing joy, light, and love everywhere I go.</p>
+    </article>
+
+    <article class="inv inv--raphael">
+      <div class="inv__head"><span class="inv__face" aria-hidden="true"></span>
+        <h2 class="inv__name"><small>In green, with the staff</small>Archangel Raphael</h2></div>
+      <p>&ldquo;Archangel Raphael, healer of God, guide of travelers, companion through crossings. Walk with me today as I walk with others. Let what moves through me bring healing rather than performance. Let me see clearly what wants to be seen and say only what wants to be said.&rdquo;</p>
+    </article>
+
+    <article class="inv inv--michael">
+      <div class="inv__head"><span class="inv__face" aria-hidden="true"></span>
+        <h2 class="inv__name"><small>In gold, sword raised</small>Archangel Michael</h2></div>
+      <p><span class="l">Archangel Michael, sword raised.</span>
+      <span class="l">Cut through the fog. Cut through the lies.</span>
+      <span class="l">Let only truth remain.</span>
+      <span class="l">Let it move through my heart and out into the world.</span>
+      <span class="l">I am ready to see. I am ready to speak.</span>
+      <span class="l">Stand with me.</span></p>
+    </article>
+
+    <p class="close">CAHager.com</p>
+  </section>
+
+  <div class="ctrl"><button type="button" id="turn" aria-controls="card">Turn to the prayer</button></div>
+</main>
+
+<script>
+(function(){
+  var card=document.getElementById('card'), btn=document.getElementById('turn');
+  function turn(){
+    var t=card.classList.toggle('turned');
+    btn.textContent=t?'Back to the image':'Turn to the prayer';
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  btn.addEventListener('click',turn);
+  card.querySelector('.front').addEventListener('click',turn);
+})();
+</script>
+</body>
+</html>

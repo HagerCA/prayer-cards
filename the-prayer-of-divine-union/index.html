@@ -63,9 +63,9 @@ body{padding-top:76px !important;}
 @media (max-width:520px){ .pc-bar a .pc-n{display:none;} }
 </style>
 <nav class="pc-bar" aria-label="The deck">
-  <a href="../abundance-of-money/" rel="prev">&lsaquo; <span class="pc-n">Prayer for the Abundance of Wealth</span></a>
-  <a class="pc-mid" href="../">All the cards <span>&middot; 12 of 14</span></a>
-  <a href="../stag-invocation/" rel="next"><span class="pc-n">Stag Invocation</span> &rsaquo;</a>
+  <a href="../stag-invocation/" rel="prev">&lsaquo; <span class="pc-n">Stag Invocation</span></a>
+  <a class="pc-mid" href="../">All the cards <span>&middot; 11 of 14</span></a>
+  <a href="../opening-sacred-space/" rel="next"><span class="pc-n">Opening Sacred Space</span> &rsaquo;</a>
 </nav>
 <script>
 (()=>{
@@ -73,13 +73,13 @@ body{padding-top:76px !important;}
   const side=()=>{const c=document.getElementById('card');return c&&c.classList.contains('turned')?'#prayer':'';};
   const go=s=>{location.href='../'+s+'/'+side();};
   document.addEventListener('click',e=>{const a=e.target.closest&&e.target.closest('.pc-bar a[rel]');
-    if(a){e.preventDefault();go(a.getAttribute('rel')==='next'?'stag-invocation':'abundance-of-money');}});
+    if(a){e.preventDefault();go(a.getAttribute('rel')==='next'?'opening-sacred-space':'stag-invocation');}});
   document.addEventListener('keydown',e=>{if(e.target.closest&&e.target.closest('input,textarea'))return;
-    if(e.key==='ArrowRight')go('stag-invocation');else if(e.key==='ArrowLeft')go('abundance-of-money');});
+    if(e.key==='ArrowRight')go('opening-sacred-space');else if(e.key==='ArrowLeft')go('stag-invocation');});
   let x=null,y=null;
   document.addEventListener('touchstart',e=>{x=e.touches[0].clientX;y=e.touches[0].clientY;},{passive:true});
   document.addEventListener('touchend',e=>{if(x===null)return;const dx=e.changedTouches[0].clientX-x,dy=e.changedTouches[0].clientY-y;x=null;
-    if(Math.abs(dx)>70&&Math.abs(dx)>Math.abs(dy)*1.5)go(dx<0?'stag-invocation':'abundance-of-money');});
+    if(Math.abs(dx)>70&&Math.abs(dx)>Math.abs(dy)*1.5)go(dx<0?'opening-sacred-space':'stag-invocation');});
   document.addEventListener('DOMContentLoaded',()=>{
     const c=document.getElementById('card'),t=document.getElementById('turn');if(!c||!t)return;
     if(location.hash==='#prayer'&&!c.classList.contains('turned'))t.click();

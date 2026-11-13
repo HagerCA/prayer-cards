@@ -65,8 +65,8 @@ body{padding-top:76px !important;}
 </style>
 <nav class="pc-bar" aria-label="The deck">
   <a href="../opening-sacred-space/" rel="prev">&lsaquo; <span class="pc-n">Opening Sacred Space</span></a>
-  <a class="pc-mid" href="../">All the cards <span>&middot; 6 of 14</span></a>
-  <a href="../isis-and-hathor/" rel="next"><span class="pc-n">Isis &amp; Hathor</span> &rsaquo;</a>
+  <a class="pc-mid" href="../">All the cards <span>&middot; 13 of 14</span></a>
+  <a href="../the-healing-prayer/" rel="next"><span class="pc-n">The Healing Prayer</span> &rsaquo;</a>
 </nav>
 <script>
 (()=>{
@@ -74,13 +74,13 @@ body{padding-top:76px !important;}
   const side=()=>{const c=document.getElementById('card');return c&&c.classList.contains('turned')?'#prayer':'';};
   const go=s=>{location.href='../'+s+'/'+side();};
   document.addEventListener('click',e=>{const a=e.target.closest&&e.target.closest('.pc-bar a[rel]');
-    if(a){e.preventDefault();go(a.getAttribute('rel')==='next'?'isis-and-hathor':'opening-sacred-space');}});
+    if(a){e.preventDefault();go(a.getAttribute('rel')==='next'?'the-healing-prayer':'opening-sacred-space');}});
   document.addEventListener('keydown',e=>{if(e.target.closest&&e.target.closest('input,textarea'))return;
-    if(e.key==='ArrowRight')go('isis-and-hathor');else if(e.key==='ArrowLeft')go('opening-sacred-space');});
+    if(e.key==='ArrowRight')go('the-healing-prayer');else if(e.key==='ArrowLeft')go('opening-sacred-space');});
   let x=null,y=null;
   document.addEventListener('touchstart',e=>{x=e.touches[0].clientX;y=e.touches[0].clientY;},{passive:true});
   document.addEventListener('touchend',e=>{if(x===null)return;const dx=e.changedTouches[0].clientX-x,dy=e.changedTouches[0].clientY-y;x=null;
-    if(Math.abs(dx)>70&&Math.abs(dx)>Math.abs(dy)*1.5)go(dx<0?'isis-and-hathor':'opening-sacred-space');});
+    if(Math.abs(dx)>70&&Math.abs(dx)>Math.abs(dy)*1.5)go(dx<0?'the-healing-prayer':'opening-sacred-space');});
   document.addEventListener('DOMContentLoaded',()=>{
     const c=document.getElementById('card'),t=document.getElementById('turn');if(!c||!t)return;
     if(location.hash==='#prayer'&&!c.classList.contains('turned'))t.click();

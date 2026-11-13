@@ -64,9 +64,9 @@ body{padding-top:76px !important;}
 @media (max-width:520px){ .pc-bar a .pc-n{display:none;} }
 </style>
 <nav class="pc-bar" aria-label="The deck">
-  <a href="../isis-and-hathor/" rel="prev">&lsaquo; <span class="pc-n">Isis &amp; Hathor</span></a>
-  <a class="pc-mid" href="../">All the cards <span>&middot; 8 of 14</span></a>
-  <a href="../the-water-blessing/" rel="next"><span class="pc-n">The Water Blessing</span> &rsaquo;</a>
+  <a href="../throat-chakra-clearing/" rel="prev">&lsaquo; <span class="pc-n">Throat Chakra Clearing</span></a>
+  <a class="pc-mid" href="../">All the cards <span>&middot; 7 of 14</span></a>
+  <a href="../isis-and-hathor/" rel="next"><span class="pc-n">Isis &amp; Hathor</span> &rsaquo;</a>
 </nav>
 <script>
 (()=>{
@@ -74,13 +74,13 @@ body{padding-top:76px !important;}
   const side=()=>{const c=document.getElementById('card');return c&&c.classList.contains('turned')?'#prayer':'';};
   const go=s=>{location.href='../'+s+'/'+side();};
   document.addEventListener('click',e=>{const a=e.target.closest&&e.target.closest('.pc-bar a[rel]');
-    if(a){e.preventDefault();go(a.getAttribute('rel')==='next'?'the-water-blessing':'isis-and-hathor');}});
+    if(a){e.preventDefault();go(a.getAttribute('rel')==='next'?'isis-and-hathor':'throat-chakra-clearing');}});
   document.addEventListener('keydown',e=>{if(e.target.closest&&e.target.closest('input,textarea'))return;
-    if(e.key==='ArrowRight')go('the-water-blessing');else if(e.key==='ArrowLeft')go('isis-and-hathor');});
+    if(e.key==='ArrowRight')go('isis-and-hathor');else if(e.key==='ArrowLeft')go('throat-chakra-clearing');});
   let x=null,y=null;
   document.addEventListener('touchstart',e=>{x=e.touches[0].clientX;y=e.touches[0].clientY;},{passive:true});
   document.addEventListener('touchend',e=>{if(x===null)return;const dx=e.changedTouches[0].clientX-x,dy=e.changedTouches[0].clientY-y;x=null;
-    if(Math.abs(dx)>70&&Math.abs(dx)>Math.abs(dy)*1.5)go(dx<0?'the-water-blessing':'isis-and-hathor');});
+    if(Math.abs(dx)>70&&Math.abs(dx)>Math.abs(dy)*1.5)go(dx<0?'isis-and-hathor':'throat-chakra-clearing');});
   document.addEventListener('DOMContentLoaded',()=>{
     const c=document.getElementById('card'),t=document.getElementById('turn');if(!c||!t)return;
     if(location.hash==='#prayer'&&!c.classList.contains('turned'))t.click();

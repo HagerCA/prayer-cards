@@ -68,11 +68,25 @@ body{padding-top:76px !important;}
   <a href="../stag-invocation/" rel="next"><span class="pc-n">Stag Invocation</span> &rsaquo;</a>
 </nav>
 <script>
-document.addEventListener('keydown',e=>{if(e.target.closest&&e.target.closest('input,textarea'))return;
-  if(e.key==='ArrowRight')location.href='../stag-invocation/';else if(e.key==='ArrowLeft')location.href='../abundance-of-money/';});
-(()=>{let x=null;document.addEventListener('touchstart',e=>{x=e.touches[0].clientX;},{passive:true});
-document.addEventListener('touchend',e=>{if(x===null)return;const d=e.changedTouches[0].clientX-x;x=null;
-  if(Math.abs(d)>70)location.href=d<0?'../stag-invocation/':'../abundance-of-money/';});})();
+(()=>{
+  /* Stay on the same side when moving through the deck: picture to picture, prayer to prayer. */
+  const side=()=>{const c=document.getElementById('card');return c&&c.classList.contains('turned')?'#prayer':'';};
+  const go=s=>{location.href='../'+s+'/'+side();};
+  document.addEventListener('click',e=>{const a=e.target.closest&&e.target.closest('.pc-bar a[rel]');
+    if(a){e.preventDefault();go(a.getAttribute('rel')==='next'?'stag-invocation':'abundance-of-money');}});
+  document.addEventListener('keydown',e=>{if(e.target.closest&&e.target.closest('input,textarea'))return;
+    if(e.key==='ArrowRight')go('stag-invocation');else if(e.key==='ArrowLeft')go('abundance-of-money');});
+  let x=null,y=null;
+  document.addEventListener('touchstart',e=>{x=e.touches[0].clientX;y=e.touches[0].clientY;},{passive:true});
+  document.addEventListener('touchend',e=>{if(x===null)return;const dx=e.changedTouches[0].clientX-x,dy=e.changedTouches[0].clientY-y;x=null;
+    if(Math.abs(dx)>70&&Math.abs(dx)>Math.abs(dy)*1.5)go(dx<0?'stag-invocation':'abundance-of-money');});
+  document.addEventListener('DOMContentLoaded',()=>{
+    const c=document.getElementById('card'),t=document.getElementById('turn');if(!c||!t)return;
+    if(location.hash==='#prayer'&&!c.classList.contains('turned'))t.click();
+    /* Keep the address in step with the side showing, so a refresh or a shared link lands on the same face. */
+    new MutationObserver(()=>history.replaceState(null,'',side()||location.pathname)).observe(c,{attributes:true,attributeFilter:['class']});
+  });
+})();
 </script>
 
 <main class="card" id="card" aria-label="The Prayer of Divine Union, a prayer card">

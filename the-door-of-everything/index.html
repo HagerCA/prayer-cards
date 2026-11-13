@@ -51,7 +51,29 @@ button:hover,button:focus-visible{background:var(--gold);color:var(--night);outl
 </style>
 </head>
 <body>
-<a href="../" style="position:fixed;top:14px;left:14px;z-index:5;font:600 11px/1 'Space Grotesk','Segoe UI',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#E2B867;text-decoration:none;padding:10px 14px;border:1px solid rgba(184,137,58,.6);border-radius:2px;background:rgba(11,18,32,.88)">&larr; All the cards</a>
+<style>
+.pc-bar{position:fixed;left:0;right:0;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 12px;
+  background:linear-gradient(180deg,rgba(11,18,32,.96),rgba(11,18,32,.82));border-bottom:1px solid rgba(184,137,58,.35);backdrop-filter:blur(4px);
+  font:600 11px/1.2 'Space Grotesk','Segoe UI',sans-serif;letter-spacing:.16em;text-transform:uppercase;}
+.pc-bar a{color:#E2B867;text-decoration:none;padding:9px 12px;border:1px solid rgba(184,137,58,.55);border-radius:2px;max-width:38%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.pc-bar a:hover,.pc-bar a:focus-visible{background:#B8893A;color:#0B1220;outline:none;}
+.pc-bar .pc-mid{max-width:none;border-color:transparent;}
+.pc-bar .pc-mid span{color:rgba(242,232,214,.5);}
+body{padding-top:76px !important;}
+@media (max-width:520px){ .pc-bar a .pc-n{display:none;} }
+</style>
+<nav class="pc-bar" aria-label="The deck">
+  <a href="../divine-masculine-prayer-of-remembering/" rel="prev">&lsaquo; <span class="pc-n">Divine Masculine: Prayer of Remembering</span></a>
+  <a class="pc-mid" href="../">All the cards <span>&middot; 4 of 14</span></a>
+  <a href="../opening-sacred-space/" rel="next"><span class="pc-n">Opening Sacred Space</span> &rsaquo;</a>
+</nav>
+<script>
+document.addEventListener('keydown',e=>{if(e.target.closest&&e.target.closest('input,textarea'))return;
+  if(e.key==='ArrowRight')location.href='../opening-sacred-space/';else if(e.key==='ArrowLeft')location.href='../divine-masculine-prayer-of-remembering/';});
+(()=>{let x=null;document.addEventListener('touchstart',e=>{x=e.touches[0].clientX;},{passive:true});
+document.addEventListener('touchend',e=>{if(x===null)return;const d=e.changedTouches[0].clientX-x;x=null;
+  if(Math.abs(d)>70)location.href=d<0?'../opening-sacred-space/':'../divine-masculine-prayer-of-remembering/';});})();
+</script>
 
 <main class="card" id="card" aria-label="The Door of Everything, a prayer card">
   <section class="face front" aria-label="The card">

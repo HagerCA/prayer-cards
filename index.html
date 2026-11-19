@@ -106,19 +106,7 @@ footer{text-align:center;padding:26px 20px 34px;font:600 10px/1.6 var(--head);le
 
 <div class="table" id="table" role="list" aria-label="The deck, spread out"></div>
 
-<div class="caption" aria-live="polite" id="caption"><p class="hint">Hover a card to turn it over. Click to hold it up, then walk through the deck. Click the card again to open it.</p></div>
-
-<div class="stage" id="stage" role="dialog" aria-modal="true" aria-label="The card you picked">
-  <div class="hold">
-    <button class="arrow" type="button" id="prev" aria-label="Previous card">&lsaquo;</button>
-    <a class="big" id="big" href="#"><img id="bigimg" alt=""></a>
-    <button class="arrow" type="button" id="next" aria-label="Next card">&rsaquo;</button>
-  </div>
-  <p class="count" id="scount"></p>
-  <p class="sname" id="sname"></p>
-  <p class="sby" id="sby"></p>
-  <div class="row"><a class="btn" id="open" href="#">Open the card &rarr;</a><button class="btn" type="button" id="putback">Put it back</button></div>
-</div>
+<div class="caption" aria-live="polite" id="caption"><p class="hint">Hover a card to turn it over. Click one to open its prayer, then walk through the deck with the arrows.</p></div>
 
 <footer>CAHager.com &middot; Every card credits whoever wrote its words</footer>
 
@@ -126,16 +114,14 @@ footer{text-align:center;padding:26px 20px 34px;font:600 10px/1.6 var(--head);le
 const DECK = [{"slug":"yeshua-and-the-archangels","title":"Yeshua and the Archangels","by":"Invocations · Christopher Hager","tall":false},{"slug":"christ-energy-prayer","title":"The Christ Energy Prayer","by":"By Carol Channell-Cox","tall":false},{"slug":"divine-masculine-prayer-of-remembering","title":"Divine Masculine: Prayer of Remembering","by":"Christopher Hager · since June 23, 2023","tall":false},{"slug":"the-door-of-everything","title":"The Door of Everything","by":"From The Door of Everything by Ruby Nelson, 1963","tall":false},{"slug":"the-water-blessing","title":"The Water Blessing","by":"Christopher Hager · since June 9, 2024","tall":false},{"slug":"throat-chakra-clearing","title":"Throat Chakra Clearing","by":"Christopher Hager · since July 11, 2024","tall":false},{"slug":"healing-prayers","title":"Healing Prayers","by":"After Paramahansa Yogananda","tall":false},{"slug":"family-prayers","title":"Family Prayers","by":"Christopher Hager","tall":false},{"slug":"isis-and-hathor","title":"Isis & Hathor","by":"From The Sophia Code by Kaia Ra","tall":false},{"slug":"abundance-of-money","title":"Prayer for the Abundance of Wealth","by":"Christopher Hager","tall":false},{"slug":"stag-invocation","title":"Stag Invocation","by":"Christopher Hager","tall":false},{"slug":"the-prayer-of-divine-union","title":"The Prayer of Divine Union","by":"Christopher Hager","tall":false},{"slug":"opening-sacred-space","title":"Opening Sacred Space","by":"By Alberto Villoldo · The Four Winds Society","tall":false},{"slug":"prayer-of-acceptance","title":"Prayer of Acceptance","by":"Traditional · author unknown","tall":false},{"slug":"the-healing-prayer","title":"The Healing Prayer","by":"Traditional · Author unknown","tall":false}];
 const BACK = `<svg viewBox="0 0 168 208" aria-hidden="true"><rect x="7" y="7" width="154" height="194" rx="6" fill="none" stroke="#E2B867" stroke-opacity=".75"/><rect x="12" y="12" width="144" height="184" rx="4" fill="none" stroke="#E2B867" stroke-opacity=".3"/><g fill="none" stroke="#E2B867" stroke-opacity=".7" stroke-width="1.1">${[[0,0],[0,-22],[19,-11],[19,11],[0,22],[-19,11],[-19,-11]].map(([x,y])=>`<circle cx="${84+x}" cy="${104+y}" r="22"/>`).join('')}<circle cx="84" cy="104" r="46"/></g><circle cx="84" cy="104" r="4" fill="#E2B867"/><path d="M84 36 l3 8 h-6z M84 172 l3 -8 h-6z" fill="#E2B867" fill-opacity=".7"/></svg>`;
 const table = document.getElementById('table'), caption = document.getElementById('caption');
-const stage = document.getElementById('stage');
 const n = DECK.length, spread = Math.min(84, n * 6.4);
-let picked = null;
 
 DECK.forEach((c, i) => {
   const r = n > 1 ? -spread / 2 + spread * i / (n - 1) : 0;
   const b = document.createElement('button');
   b.className = 'card'; b.type = 'button'; b.setAttribute('role', 'listitem');
   b.style.setProperty('--r', r.toFixed(2) + 'deg'); b.style.setProperty('--z', i + 1);
-  b.setAttribute('aria-label', c.title + '. Click to turn it over.');
+  b.setAttribute('aria-label', c.title + '. Click to open its prayer.');
   b.innerHTML = `<span class="flip"><span class="face back-face">${BACK}</span><span class="face front-face"><img src="./${c.slug}/thumb.jpg" alt=""></span></span>`;
   let warm = false;
   const show = () => {
@@ -143,50 +129,9 @@ DECK.forEach((c, i) => {
     if (!warm) { warm = true; new Image().src = `./${c.slug}/card.jpg`; }
   };
   b.addEventListener('mouseenter', show); b.addEventListener('focus', show);
-  b.addEventListener('click', () => {
-    if (picked === b) { location.href = `./${c.slug}/`; return; }
-    putBack(); picked = b; b.classList.add('turned'); show();
-    setTimeout(() => open(i), 380);
-  });
+  /* 2026-11-19: a card opens straight onto its prayer, the way the Prayer Room on cahager.com does. */
+  b.addEventListener('click', () => { b.classList.add('turned'); show(); setTimeout(() => { location.href = `./${c.slug}/`; }, 280); });
   table.appendChild(b);
-});
-const cards = [...table.children];
-let cur = -1;
-
-function open(i, dir){
-  cur = (i + n) % n; const c = DECK[cur];
-  if (picked) picked.classList.remove('turned');
-  picked = cards[cur]; picked.classList.add('turned');
-  const big = document.getElementById('big'), img = document.getElementById('bigimg');
-  img.src = `./${c.slug}/card.jpg`; img.alt = `The ${c.title} card`;
-  big.href = document.getElementById('open').href = `./${c.slug}/`;
-  document.getElementById('sname').textContent = c.title;
-  document.getElementById('sby').textContent = c.by;
-  document.getElementById('scount').textContent = `${cur + 1} of ${n}`;
-  caption.innerHTML = `<p class="name">${c.title}</p><p class="by">${c.by}</p>`;
-  if (dir) { big.style.setProperty('--from', dir > 0 ? '60px' : '-60px'); big.classList.remove('swap'); void big.offsetWidth; big.classList.add('swap'); }
-  [-1, 1].forEach(d => { new Image().src = `./${DECK[(cur + d + n) % n].slug}/card.jpg`; });
-  if (!stage.classList.contains('on')) { stage.classList.add('on'); document.getElementById('next').focus({preventScroll:true}); }
-}
-const step = d => { if (stage.classList.contains('on')) open(cur + d, d); };
-function putBack(){
-  stage.classList.remove('on');
-  if (picked) { picked.classList.remove('turned'); picked = null; }
-}
-document.getElementById('prev').addEventListener('click', () => step(-1));
-document.getElementById('next').addEventListener('click', () => step(1));
-document.getElementById('putback').addEventListener('click', putBack);
-stage.addEventListener('click', e => { if (e.target === stage) putBack(); });
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') putBack();
-  else if (e.key === 'ArrowRight') step(1);
-  else if (e.key === 'ArrowLeft') step(-1);
-});
-let sx = null;
-stage.addEventListener('touchstart', e => { sx = e.touches[0].clientX; }, {passive:true});
-stage.addEventListener('touchend', e => {
-  if (sx === null) return; const dx = e.changedTouches[0].clientX - sx; sx = null;
-  if (Math.abs(dx) > 45) step(dx < 0 ? 1 : -1);
 });
 </script>
 </body>

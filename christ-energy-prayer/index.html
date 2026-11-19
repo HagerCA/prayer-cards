@@ -48,48 +48,16 @@ button{font-family:var(--head);font-size:12px;letter-spacing:.22em;text-transfor
 button:hover,button:focus-visible{background:var(--gold);color:var(--night);outline:none;}
 
 @media (max-width:440px){ .back{padding:26px 20px 22px;} .title{font-size:30px;} .prayer p{font-size:20px;} }
+/* The prayer face as it reads on cahager.com since 2026-11-12, made deliberate on 2026-11-19 (Christopher: "exactly as we have it on the website"). */
+.ctrl{gap:12px;flex-wrap:wrap;}
+.card .face.back{padding:12px 22px;border:1px solid rgba(242,232,214,.25);border-radius:2px;color:var(--paper-dim);font-family:var(--head);font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;}
+.pr-back{font-family:var(--head);font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;color:var(--paper-dim);border:1px solid rgba(242,232,214,.25);border-radius:2px;padding:12px 22px;text-decoration:none;transition:color .25s,border-color .25s;}
+.pr-back:hover,.pr-back:focus-visible{color:var(--paper);border-color:var(--paper);outline:none;}
 </style>
 </head>
 <body>
-<style>
-.pc-bar{position:fixed;left:0;right:0;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 12px;
-  background:linear-gradient(180deg,rgba(11,18,32,.96),rgba(11,18,32,.82));border-bottom:1px solid rgba(184,137,58,.35);backdrop-filter:blur(4px);
-  font:600 11px/1.2 'Space Grotesk','Segoe UI',sans-serif;letter-spacing:.16em;text-transform:uppercase;}
-.pc-bar a{color:#E2B867;text-decoration:none;padding:9px 12px;border:1px solid rgba(184,137,58,.55);border-radius:2px;max-width:38%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-.pc-bar a:hover,.pc-bar a:focus-visible{background:#B8893A;color:#0B1220;outline:none;}
-.pc-bar .pc-mid{max-width:none;border-color:transparent;}
-.pc-bar .pc-mid span{color:rgba(242,232,214,.5);}
-body{padding-top:76px !important;}
-@media (max-width:520px){ .pc-bar a .pc-n{display:none;} }
-</style>
-<nav class="pc-bar" aria-label="The deck">
-  <a href="../yeshua-and-the-archangels/" rel="prev">&lsaquo; <span class="pc-n">Yeshua and the Archangels</span></a>
-  <a class="pc-mid" href="../">All the cards <span>&middot; 2 of 15</span></a>
-  <a href="../divine-masculine-prayer-of-remembering/" rel="next"><span class="pc-n">Divine Masculine: Prayer of Remembering</span> &rsaquo;</a>
-</nav>
-<script>
-(()=>{
-  /* Stay on the same side when moving through the deck: picture to picture, prayer to prayer. */
-  const side=()=>{const c=document.getElementById('card');return c&&c.classList.contains('turned')?'#prayer':'';};
-  const go=s=>{location.href='../'+s+'/'+side();};
-  document.addEventListener('click',e=>{const a=e.target.closest&&e.target.closest('.pc-bar a[rel]');
-    if(a){e.preventDefault();go(a.getAttribute('rel')==='next'?'divine-masculine-prayer-of-remembering':'yeshua-and-the-archangels');}});
-  document.addEventListener('keydown',e=>{if(e.target.closest&&e.target.closest('input,textarea'))return;
-    if(e.key==='ArrowRight')go('divine-masculine-prayer-of-remembering');else if(e.key==='ArrowLeft')go('yeshua-and-the-archangels');});
-  let x=null,y=null;
-  document.addEventListener('touchstart',e=>{x=e.touches[0].clientX;y=e.touches[0].clientY;},{passive:true});
-  document.addEventListener('touchend',e=>{if(x===null)return;const dx=e.changedTouches[0].clientX-x,dy=e.changedTouches[0].clientY-y;x=null;
-    if(Math.abs(dx)>70&&Math.abs(dx)>Math.abs(dy)*1.5)go(dx<0?'divine-masculine-prayer-of-remembering':'yeshua-and-the-archangels');});
-  document.addEventListener('DOMContentLoaded',()=>{
-    const c=document.getElementById('card'),t=document.getElementById('turn');if(!c||!t)return;
-    if(location.hash==='#prayer'&&!c.classList.contains('turned'))t.click();
-    /* Keep the address in step with the side showing, so a refresh or a shared link lands on the same face. */
-    new MutationObserver(()=>history.replaceState(null,'',side()||location.pathname)).observe(c,{attributes:true,attributeFilter:['class']});
-  });
-})();
-</script>
 
-<main class="card" id="card" aria-label="The Christ Energy Prayer, a prayer card">
+<main class="card turned" id="card" aria-label="The Christ Energy Prayer, a prayer card">
   <section class="face front" aria-label="The card">
     <img src="./card.jpg" width="1136" height="1408" alt="Yeshua in a keffiyeh, both hands raised in blessing, sacred geometry glowing around him on blue and gold stone in a torn gold frame, beneath the words The Christ Energy Prayer, es mi hermano.">
   </section>
@@ -117,7 +85,7 @@ body{padding-top:76px !important;}
     <p class="note">As Christopher Hager prays it &middot; the closing is his<br>CAHager.com</p>
   </section>
 
-  <div class="ctrl"><button type="button" id="turn" aria-controls="card">Turn to the prayer</button></div>
+  <div class="ctrl"><button type="button" id="turn" aria-controls="card">See the card</button><a class="pr-back" href="../">All the cards</a></div>
 </main>
 
 <script>
@@ -125,12 +93,59 @@ body{padding-top:76px !important;}
   var card=document.getElementById('card'), btn=document.getElementById('turn');
   function turn(){
     var t=card.classList.toggle('turned');
-    btn.textContent=t?'Back to the image':'Turn to the prayer';
+    btn.textContent=t?'See the card':'Back to the prayer';
     window.scrollTo({top:0,behavior:'smooth'});
   }
   btn.addEventListener('click',turn);
   card.querySelector('.front').addEventListener('click',turn);
 })();
 </script>
+<!-- pr-nav: arrows to walk prayer to prayer. Shared by build-deck.mjs (Alchemy Lab deck) and cards_to_site.py (cahager.com). -->
+<style>
+.pr-arrow{position:fixed;top:50%;z-index:30;width:52px;height:52px;margin-top:-26px;display:flex;align-items:center;justify-content:center;
+  border:1px solid #B8893A;border-radius:50%;background:rgba(11,18,32,.82);color:#E2B867;text-decoration:none;
+  font:400 34px/1 'Instrument Serif',Georgia,serif;padding-bottom:4px;box-shadow:0 8px 24px rgba(0,0,0,.45);
+  transition:background .25s,color .25s;backdrop-filter:blur(3px);}
+.pr-arrow:hover,.pr-arrow:focus-visible{background:#B8893A;color:#0B1220;outline:none;}
+.pr-arrow--prev{left:max(14px,calc(50% - 340px));}
+.pr-arrow--next{right:max(14px,calc(50% - 340px));}
+.pr-pos{margin:14px 0 0;text-align:center;font:600 10px/1.4 'Space Grotesk','Segoe UI',sans-serif;letter-spacing:.24em;text-transform:uppercase;color:rgba(242,232,214,.5);}
+.pr-strip{display:none;position:fixed;left:0;right:0;bottom:0;height:80px;z-index:29;pointer-events:none;
+  background:linear-gradient(180deg,rgba(11,18,32,0),rgba(11,18,32,.94) 38%);}
+@media (max-width:720px){
+  .pr-arrow{top:auto;bottom:16px;margin-top:0;width:46px;height:46px;font-size:30px;}
+  .pr-arrow--prev{left:14px;} .pr-arrow--next{right:14px;}
+  body{padding-bottom:84px !important;}
+  .pr-strip{display:block;}
+}
+</style>
+<div class="pr-strip" aria-hidden="true"></div>
+<a class="pr-arrow pr-arrow--prev" href="../yeshua-and-the-archangels/" rel="prev" aria-label="Previous prayer: Yeshua and the Archangels" title="Yeshua and the Archangels">&lsaquo;</a>
+<a class="pr-arrow pr-arrow--next" href="../divine-masculine-prayer-of-remembering/" rel="next" aria-label="Next prayer: Divine Masculine: Prayer of Remembering" title="Divine Masculine: Prayer of Remembering">&rsaquo;</a>
+<script>
+(()=>{
+  const P='../yeshua-and-the-archangels/',N='../divine-masculine-prayer-of-remembering/',POS='2 of 15';
+  const go=u=>{location.href=u;};
+  document.addEventListener('keydown',e=>{
+    if(e.altKey||e.ctrlKey||e.metaKey||e.shiftKey)return;
+    if(e.target.closest&&e.target.closest('input,textarea,select,[contenteditable]'))return;
+    if(e.key==='ArrowRight')go(N);else if(e.key==='ArrowLeft')go(P);
+  });
+  let x=null,y=null;
+  document.addEventListener('touchstart',e=>{x=e.touches[0].clientX;y=e.touches[0].clientY;},{passive:true});
+  document.addEventListener('touchend',e=>{if(x===null)return;const dx=e.changedTouches[0].clientX-x,dy=e.changedTouches[0].clientY-y;x=null;
+    if(Math.abs(dx)>70&&Math.abs(dx)>Math.abs(dy)*1.5)go(dx<0?N:P);});
+  const ready=()=>{
+    /* The little round picture beside the first line opens the card's image. */
+    const t=document.getElementById('turn');
+    document.querySelectorAll('.face-dot,.inv__face').forEach(d=>{d.style.cursor='pointer';d.title='See the card';d.addEventListener('click',()=>t&&t.click());});
+    const c=document.querySelector('.ctrl');
+    if(c&&POS){const p=document.createElement('p');p.className='pr-pos';p.textContent=POS;c.after(p);}
+    [P,N].forEach(u=>{const l=document.createElement('link');l.rel='prefetch';l.href=u;document.head.appendChild(l);});
+  };
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',ready);else ready();
+})();
+</script>
+<!-- /pr-nav -->
 </body>
 </html>
